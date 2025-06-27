@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JV Call Alert</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      background-color: #fef3c7;
+      color: #92400e;
+    }
+    h1 {
+      font-size: 36px;
+      color: #c2410c;
+    }
+    p {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="alert-title">Incoming JV Call</h1>
+  <p id="alert-text">Loading joint venture info...</p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const jvNum = (params.get("source") || "").trim();
+
+    const jvMap = {
+      "11": "Ali Anwar",
+      "14": "Jenny Atyeo",
+      "7": "Andrew Bassford",
+      "9": "Sai Bharti",
+      "16": "Liz Brewington",
+      "15": "Adhnan Bukhari",
+      "19": "Cheryl Clelland",
+      "8": "Jim Gillanders",
+      "20": "Alex Koss",
+      "5": "Linda Mariott",
+      "18": "Junaid Mir",
+      "2": "Mitul Mistry",
+      "13": "Scott Phillips",
+      "10": "Steve Pollock",
+      "6": "Maninder Sandhu"
+    };
+
+    const jvName = jvMap[jvNum];
+    const isKnown = jvName !== undefined;
+
+    document.getElementById("alert-title").textContent = isKnown
+      ? `⚠ Call from JV ${jvNum} — ${jvName}`
+      : `⚠ ${jvNum} CALL`;
+
+    document.getElementById("alert-text").innerHTML = isKnown
+      ? `Please follow partnership protocol for this JV.`
+      : `Unknown JV – follow general process.`;
+  </script>
+</body>
+</html>
