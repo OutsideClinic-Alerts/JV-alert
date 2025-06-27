@@ -26,7 +26,7 @@
 
   <script>
     const params = new URLSearchParams(window.location.search);
-    const jvNum = params.get("source");
+    const jvNum = (params.get("source") || "").trim();
 
     const jvMap = {
       "11": "Ali Anwar",
@@ -50,12 +50,12 @@
     const isKnown = jvName !== undefined;
 
     document.getElementById("alert-title").textContent = isKnown
-      ? `⚠ Call from JV ${jvNum} — ${jvName}`
-      : "⚠ Call from Unknown JV";
+      ? `⚠ ${jvNum} CALL`
+      : `⚠ ${jvNum} CALL`;
 
     document.getElementById("alert-text").textContent = isKnown
-      ? "Please follow partnership protocol for this JV."
-      : "No JV mapping found for this number.";
+      ? `Call from JV ${jvNum} — ${jvName}.\nPlease follow partnership protocol for this JV.`
+      : "Unknown JV – follow general process.";
   </script>
 </body>
 </html>
