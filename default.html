@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>JV Call Alert</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff6cc;
+      text-align: center;
+      padding-top: 10%;
+      color: #a94400;
+    }
+    .alert {
+      font-size: 2.2em;
+      font-weight: bold;
+      margin-bottom: 20px;
+    }
+    .subtext {
+      font-size: 1.3em;
+    }
+    .icon {
+      font-size: 3em;
+    }
+    #dismissBtn {
+      margin-top: 30px;
+      padding: 10px 25px;
+      font-size: 1em;
+      background-color: #ffa500;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #dismissBtn:hover {
+      background-color: #e69500;
+    }
+  </style>
+</head>
+<body>
+  <div class="icon">⚠️</div>
+  <div class="alert">Incoming JV Call</div>
+  <div class="subtext">Please follow the appropriate joint venture protocol.</div>
+  <button id="dismissBtn" onclick="window.close()">Dismiss</button>
+
+  <audio autoplay>
+    <source src="https://outsideclinic-alerts.github.io/JV-alert/chime.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+</body>
+</html>
