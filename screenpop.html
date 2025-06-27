@@ -50,12 +50,12 @@
     const isKnown = jvName !== undefined;
 
     document.getElementById("alert-title").textContent = isKnown
-      ? `⚠ ${jvNum} CALL`
+      ? `⚠ Call from JV ${jvNum} — ${jvName}`
       : `⚠ ${jvNum} CALL`;
 
-    document.getElementById("alert-text").textContent = isKnown
-      ? `Call from JV ${jvNum} — ${jvName}.\nPlease follow partnership protocol for this JV.`
-      : "Unknown JV – follow general process.";
+    document.getElementById("alert-text").innerHTML = isKnown
+      ? `Please follow partnership protocol for this JV.`
+      : `Unknown JV – follow general process.`;
   </script>
 </body>
 </html>
