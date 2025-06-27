@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JV Call Alert</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+      background-color: #fef3c7;
+      color: #92400e;
+    }
+    h1 {
+      font-size: 36px;
+      color: #c2410c;
+    }
+    p {
+      font-size: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1 id="alert-title">Incoming JV Call</h1>
+  <p id="alert-text">Loading joint venture info...</p>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const source = params.get("source")?.toLowerCase() || "";
+
+    const messages = {
+      visioncare: "VisionCare JV – please follow specific handling process.",
+      careoptics: "Care Optics JV – remember to verify patient history.",
+      eyehouse: "EyeHouse JV – prioritise feedback collection.",
+      specsecure: "SpecSecure JV – escalate unresolved issues.",
+      acuvista: "AcuVista JV – log patient experience rating.",
+      // add all 20 JVs here
+    };
+
+    const message = messages[source] || "Unknown JV – follow general process.";
+    const title = source ? `⚠ ${source.toUpperCase()} CALL` : "Unknown Source";
+
+    document.getElementById("alert-title").textContent = title;
+    document.getElementById("alert-text").textContent = message;
+  </script>
+</body>
+</html>
